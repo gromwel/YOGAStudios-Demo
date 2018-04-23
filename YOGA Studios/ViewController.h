@@ -10,9 +10,5 @@
 
 @interface ViewController : UIViewController
 
-- (IBAction)adminButton:(id)sender;
-- (IBAction)userButton:(id)sender;
-
 
 @end
-

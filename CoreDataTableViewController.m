@@ -18,7 +18,7 @@
 
 #pragma mark - ManagedObjectContext
 - (NSManagedObjectContext *) managedObjectContext {
-    NSLog(@"ведущий managedObjectContext");
+    //NSLog(@"ведущий managedObjectContext");
 
     if (!_managedObjectContext) {
         _managedObjectContext = [[[CoreDataManager sharedManager] persistentContainer] viewContext];
@@ -28,7 +28,7 @@
 
 
 - (void)insertNewObject:(id)sender {
-    NSLog(@"ведущий insertNewObject");
+    //NSLog(@"ведущий insertNewObject");
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     //Event *newEvent = [[Event alloc] initWithContext:context];
     
@@ -48,13 +48,13 @@
 
 #pragma mark - Table View
 - (NSFetchedResultsController *)fetchedResultsController {
-    NSLog(@"ведущий fetchedResultsController");
+    //NSLog(@"ведущий fetchedResultsController");
     return nil;
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@"ведущий numberOfSectionsInTableView");
+    //NSLog(@"ведущий numberOfSectionsInTableView");
     //NSLog(@"numberOfSectionsInTableView");
     NSInteger count = [[self.fetchedResultsController sections] count];
     //NSLog(@"%li", count);
@@ -63,7 +63,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"ведущий numberOfRowsInSection");
+    //NSLog(@"ведущий numberOfRowsInSection");
     //NSLog(@"numberOfRowsInSection %li", section);
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     //NSLog(@"%li", [sectionInfo numberOfObjects]);
@@ -72,7 +72,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"ведущий cellForRowAtIndexPath");
+    //NSLog(@"ведущий cellForRowAtIndexPath");
     //NSLog(@"cellForRowAtIndexPath");
     
     static NSString * identifier = @"Cell";
@@ -88,7 +88,7 @@
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"ведущий canEditRowAtIndexPath");
+    //NSLog(@"ведущий canEditRowAtIndexPath");
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
@@ -96,7 +96,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     //если удаление
-    NSLog(@"ведущий commitEditingStyle");
+    //NSLog(@"ведущий commitEditingStyle");
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
@@ -117,31 +117,31 @@
 
 
 - (void)configureCell:(UITableViewCell *)cell withIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"ведущий configureCell");
+    //NSLog(@"ведущий configureCell");
 }
 
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    NSLog(@"ведущий moveRowAtIndexPath");
+    //NSLog(@"ведущий moveRowAtIndexPath");
 }
 
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"ведущий canMoveRowAtIndexPath");
+    //NSLog(@"ведущий canMoveRowAtIndexPath");
     return nil;
 }
 
 
 #pragma mark - Fetched results controller
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    NSLog(@"ведущий controllerWillChangeContent");
+    //NSLog(@"ведущий controllerWillChangeContent");
     [self.tableView beginUpdates];
 }
 
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-    NSLog(@"ведущий didChangeSection");
+    //NSLog(@"ведущий didChangeSection");
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
@@ -158,7 +158,7 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath {
-    NSLog(@"ведущий didChangeObject");
+    //NSLog(@"ведущий didChangeObject");
     UITableView *tableView = self.tableView;
     switch(type) {
         case NSFetchedResultsChangeInsert:
@@ -178,7 +178,7 @@
 
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    NSLog(@"ведущий controllerDidChangeContent");
+    //NSLog(@"ведущий controllerDidChangeContent");
     [self.tableView endUpdates];
 }
 

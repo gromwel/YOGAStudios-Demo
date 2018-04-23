@@ -8,38 +8,33 @@
 
 
 #import "CoreDataManager.h"
-
 #import "YSEntity+CoreDataClass.h"
 #import "YSEntity+CoreDataProperties.h"
-
 #import "YSStudio+CoreDataClass.h"
 #import "YSStudio+CoreDataProperties.h"
-
 #import "YSPractice+CoreDataClass.h"
 #import "YSPractice+CoreDataProperties.h"
-
 #import "YSTeacher+CoreDataClass.h"
 #import "YSTeacher+CoreDataProperties.h"
-
 #import "YSStudent+CoreDataClass.h"
 #import "YSStudent+CoreDataProperties.h"
 
 
-
+//  Названия практик
 static NSString * practiceNames[] = {
     @"Виньяса-Флоу", @"Динамическая йога", @"Пилатес", @"Йога для беременных", @"Тай Чи", @"Krama Vinyasa", @"Айенгар Йога",
     @"Аштанга-Виньяса-Йога", @"Yogic Arts", @"Йога в обед", @"5 Ритуалов Тибетских Монахов", @"Детокс Виньяса Йога", @"Йогатерапия", @"Лечебная йога",
     @"Йога в воздухе", @"Акро-Йога", @"Кундалини-Йoга", @"Хатха-Йога"
 };
 
-
+//  Имена преподавателей
 static NSString * teacherNames[] = {
     @"Наталья Шидловская", @"Юля Пронина", @"Наталья Поспелова", @"Елена Аккуратова", @"Татьяна Писемская",
     @"Татьяна Скворцова", @"Виталина Семенюк", @"Наталья Тулякова", @"Мария Смирнова", @"Александр Соколов",
     @"Дмитрий Край"
 };
 
-
+//  Набор имен для рандомных студентов
 static NSString * studentFirstName[] = {
     @"Алексей", @"Андрей", @"Виталий", @"Владимир", @"Дмитрий",
     @"Егор", @"Игорь", @"Константин", @"Николай", @"Сергей",
@@ -47,7 +42,7 @@ static NSString * studentFirstName[] = {
     @"Наталья", @"Ольга", @"Светлана", @"Татьяна", @"Ульяна"
 };
 
-
+//  Набор фамилий для рандомных студентов
 static NSString * studentLastName[] = {
     @"Аксенов", @"Беляков", @"Володин", @"Грачев", @"Добронравов",
     @"Замков", @"Исташев", @"Иванов", @"Кленов", @"Леонидов",
@@ -56,9 +51,11 @@ static NSString * studentLastName[] = {
 };
 
 
+
 @implementation CoreDataManager
 
 #pragma mark - Singleton
+//  Синглтон
 + (CoreDataManager *) sharedManager {
     static CoreDataManager * manager = nil;
     static dispatch_once_t onceToken;
@@ -70,7 +67,6 @@ static NSString * studentLastName[] = {
 
 #pragma mark - CoreDataSavingSupport
 - (void)saveContext {
-    NSLog(@"SAVE");
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
     NSError *error = nil;
     if ([context hasChanges] && ![context save:&error]) {
@@ -114,18 +110,18 @@ static NSString * studentLastName[] = {
 - (void) setEntitysWithName:(NSString *)name StudentNamber:(NSInteger)studentNum {
     NSLog(@"SET");
     
-    //создаем студию
+    //  Создаем студию
     YSStudio * studio = [self createStudioWithName:name];
     
     
-    //создаем всех учителей
+    //  Создаем всех учителей
     NSArray * arrayTeacher = [self createAllTeacher];
     for (YSTeacher * teacher in arrayTeacher) {
         teacher.studio = studio;
     }
     
     
-    //создаем все практики
+    //  Создаем все практики
     NSArray * arrayPractice = [self createAllPractice];
     for (YSPractice * practice in arrayPractice) {
         [practice addStudiosObject:studio];
@@ -140,7 +136,7 @@ static NSString * studentLastName[] = {
     }
     
     
-    //создаем студентов
+    //  Создаем студентов
     for (int i = 0; i < studentNum; i++) {
         YSStudent * student = [self createRandomStudent];
         student.studio = studio;
@@ -154,7 +150,7 @@ static NSString * studentLastName[] = {
     }
     
     
-    //проверяем практики на наличие студентов, если нет то и практики эти не нужны
+    //  Проверяем практики на наличие студентов, если нет то и практики эти не нужны
     for (YSPractice * practice in studio.practices.allObjects) {
         if (practice.students.allObjects.count < 2 | practice.teachers.allObjects.count == 0) {
             NSLog(@"удалить эту практику TIC = %li STU = %li", practice.teachers.allObjects.count, practice.students.allObjects.count);
@@ -165,17 +161,14 @@ static NSString * studentLastName[] = {
     }
     
     
-
     [self saveContext];
 }
 
 
+//  Вывод в консоль всех сущностей
 - (void) printEntitys {
-    NSLog(@"PRINT");
-    
     NSArray * array = [self.persistentContainer.viewContext executeFetchRequest:[YSEntity fetchRequest]
                                                                           error:nil];
-    NSLog(@"%li", array.count);
     for (id entity in array) {
         if ([entity isKindOfClass:[YSStudio class]]) {
             NSLog(@"STUDIO");
@@ -189,7 +182,7 @@ static NSString * studentLastName[] = {
     }
 }
 
-
+//  Очистка кор даты
 - (void) clearEntitys {
     NSError * error = nil;
     NSArray * array = [self.persistentContainer.viewContext executeFetchRequest:[YSEntity fetchRequest]
@@ -202,7 +195,7 @@ static NSString * studentLastName[] = {
 
 
 #pragma mark - CreateEntitys
-//создание студии
+//  Создание студии по имени
 - (YSStudio *) createStudioWithName:(NSString *)name {
     YSStudio * studio = [NSEntityDescription insertNewObjectForEntityForName:@"YSStudio"
                                                       inManagedObjectContext:self.persistentContainer.viewContext];
@@ -211,7 +204,7 @@ static NSString * studentLastName[] = {
 }
 
 
-//моздание рандомной практики
+//  Создание рандомной практики
 - (YSPractice *) createRandomPractice {
     YSPractice * practice = [NSEntityDescription insertNewObjectForEntityForName:@"YSPractice"
                                                           inManagedObjectContext:self.persistentContainer.viewContext];
@@ -220,7 +213,39 @@ static NSString * studentLastName[] = {
 }
 
 
-//создание всех практик
+//  Создание рандомного учителя
+- (YSTeacher *) createRandomTeacher {
+    YSTeacher * teacher = [NSEntityDescription insertNewObjectForEntityForName:@"YSTeacher"
+                                                        inManagedObjectContext:self.persistentContainer.viewContext];
+    NSInteger teach = arc4random()%11;
+    NSArray * name = [teacherNames[teach] componentsSeparatedByString:@" "];
+    teacher.firstName = [name firstObject];
+    teacher.lastName = [name lastObject];
+    teacher.age = arc4random()%15 + 20;
+    return teacher;
+}
+
+
+//  Создание рандомного студента
+- (YSStudent *) createRandomStudent {
+    YSStudent * student = [NSEntityDescription insertNewObjectForEntityForName:@"YSStudent"
+                                                        inManagedObjectContext:self.persistentContainer.viewContext];
+    NSInteger studFN = arc4random()%20;
+    NSInteger studLN = arc4random()%20;
+    student.firstName = studentFirstName[studFN];
+    if (studFN > 9) {
+        student.lastName = [NSString stringWithFormat:@"%@а", studentLastName[studLN]];
+        student.sex = 0;
+    } else {
+        student.lastName = studentLastName[studLN];
+        student.sex = 1;
+    }
+    student.age = arc4random()%30 + 12;
+    return student;
+}
+
+
+//  Создание всех практик
 - (NSArray *) createAllPractice {
     NSMutableArray * array = [[NSMutableArray alloc] init];
         for (int i = 0; i < 18; i++) {
@@ -234,20 +259,7 @@ static NSString * studentLastName[] = {
 }
 
 
-//создание рандомного учителя
-- (YSTeacher *) createRandomTeacher {
-    YSTeacher * teacher = [NSEntityDescription insertNewObjectForEntityForName:@"YSTeacher"
-                                                        inManagedObjectContext:self.persistentContainer.viewContext];
-    NSInteger teach = arc4random()%11;
-    NSArray * name = [teacherNames[teach] componentsSeparatedByString:@" "];
-    teacher.firstName = [name firstObject];
-    teacher.lastName = [name lastObject];
-    teacher.age = arc4random()%15 + 20;
-    return teacher;
-}
-
-
-//создание всех учителей
+//  Создание всех учителей
 - (NSArray *) createAllTeacher {
     NSMutableArray * array = [[NSMutableArray alloc] init];
     for (int i = 0; i < 11; i++) {
@@ -271,25 +283,7 @@ static NSString * studentLastName[] = {
 }
 
 
-//создание рандомного студента
-- (YSStudent *) createRandomStudent {
-    YSStudent * student = [NSEntityDescription insertNewObjectForEntityForName:@"YSStudent"
-                                                        inManagedObjectContext:self.persistentContainer.viewContext];
-    NSInteger studFN = arc4random()%20;
-    NSInteger studLN = arc4random()%20;
-    student.firstName = studentFirstName[studFN];
-    if (studFN > 9) {
-        student.lastName = [NSString stringWithFormat:@"%@а", studentLastName[studLN]];
-        student.sex = 0;
-    } else {
-        student.lastName = studentLastName[studLN];
-        student.sex = 1;
-    }
-    student.age = arc4random()%30 + 12;
-    return student;
-}
-
-//создание студента с именем и фамилией
+//  Создание студента из имени, студии, практики
 - (void) addStudentWithFirstName:(NSString *)firstName LastName:(NSString *)lastName Studio:(YSStudio *)studio Practice:(YSPractice *)practice {
     
     YSStudent * student = [NSEntityDescription insertNewObjectForEntityForName:@"YSStudent"
@@ -306,6 +300,7 @@ static NSString * studentLastName[] = {
     [self saveContext];
 }
 
+//  Создание преподавателя из имени, студии, практики
 - (void) addTeacherWithFirstName:(NSString *)firstName LastName:(NSString *)lastName Studio:(YSStudio *)studio Practice:(YSPractice *)practice {
     
     YSTeacher * teacher = [NSEntityDescription insertNewObjectForEntityForName:@"YSTeacher"
@@ -323,12 +318,14 @@ static NSString * studentLastName[] = {
 }
 
 
+//  Создание практики из имени, студии
 - (void) addPracticeWithName:(NSString *)name Studio:(YSStudio *)studio {
     
     YSPractice * practice = [NSEntityDescription insertNewObjectForEntityForName:@"YSPractice" inManagedObjectContext:self.persistentContainer.viewContext];
     
     practice.name = name;
     practice.descriptionText = [self descriptionWithName:name];
+    practice.imageName = @"imageNotFound";
     
     [practice addStudiosObject:studio];
     
@@ -336,7 +333,7 @@ static NSString * studentLastName[] = {
 }
 
 
-//описание по имени практики
+//  Описание по имени практики
 - (NSString *) descriptionWithName:(NSString *)name {
     NSString * description = nil;
     if ([name isEqualToString: @"Виньяса-Флоу"]) {
@@ -378,5 +375,7 @@ static NSString * studentLastName[] = {
     }
     return description;
 }
+
+
 
 @end

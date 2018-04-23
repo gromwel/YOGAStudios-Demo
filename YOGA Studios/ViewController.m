@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "CoreDataManager.h"
 
 #import "PeopleInfoViewController.h"
 
@@ -20,11 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    //[[CoreDataManager sharedManager] setEntitysWithName:@"" StudentNamber:20];
-    //[[CoreDataManager sharedManager] printEntitys];
-    //[[CoreDataManager sharedManager] clearEntitys];
-    //[[CoreDataManager sharedManager] printEntitys];
+
 }
 
 
@@ -33,12 +28,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)adminButton:(id)sender {
-    PeopleInfoViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"People"];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (IBAction)userButton:(id)sender {
-}
 @end

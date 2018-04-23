@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C00C34931FDC486D005686A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00C34921FDC486D005686A7 /* Images.xcassets */; };
+		C01766E52083F71E00C70C2F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C01766E42083F71E00C70C2F /* Images.xcassets */; };
 		C07046A31FD5D499004F5E7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C07046A21FD5D499004F5E7D /* AppDelegate.m */; };
 		C07046A61FD5D49A004F5E7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07046A51FD5D49A004F5E7D /* ViewController.m */; };
 		C07046A91FD5D49A004F5E7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07046A71FD5D49A004F5E7D /* Main.storyboard */; };
@@ -22,8 +22,8 @@
 		C07046E11FD8832F004F5E7D /* PracticeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07046E01FD8832F004F5E7D /* PracticeTableViewController.m */; };
 		C07046E41FD8833D004F5E7D /* TeacherTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07046E31FD8833D004F5E7D /* TeacherTableViewController.m */; };
 		C07046E71FD88365004F5E7D /* StudentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07046E61FD88365004F5E7D /* StudentTableViewController.m */; };
+		C091DF7A20853B9C00CC31CF /* EntitisTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C091DF7920853B9C00CC31CF /* EntitisTableViewController.m */; };
 		C0ED88861FE6D8C700E43C62 /* PeopleInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ED88851FE6D8C700E43C62 /* PeopleInfoViewController.m */; };
-		C0ED88891FE6DF6E00E43C62 /* PracticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ED88881FE6DF6E00E43C62 /* PracticeViewController.m */; };
 		C0ED888C1FE83A2600E43C62 /* PracticeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ED888B1FE83A2600E43C62 /* PracticeInfoViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C00C34921FDC486D005686A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C01766E42083F71E00C70C2F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C070469E1FD5D499004F5E7D /* YOGA Studios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YOGA Studios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C07046A11FD5D499004F5E7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C07046A21FD5D499004F5E7D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -74,10 +74,10 @@
 		C07046E31FD8833D004F5E7D /* TeacherTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherTableViewController.m; sourceTree = "<group>"; };
 		C07046E51FD88365004F5E7D /* StudentTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentTableViewController.h; sourceTree = "<group>"; };
 		C07046E61FD88365004F5E7D /* StudentTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudentTableViewController.m; sourceTree = "<group>"; };
+		C091DF7820853B9C00CC31CF /* EntitisTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntitisTableViewController.h; sourceTree = "<group>"; };
+		C091DF7920853B9C00CC31CF /* EntitisTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntitisTableViewController.m; sourceTree = "<group>"; };
 		C0ED88841FE6D8C700E43C62 /* PeopleInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeopleInfoViewController.h; sourceTree = "<group>"; };
 		C0ED88851FE6D8C700E43C62 /* PeopleInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleInfoViewController.m; sourceTree = "<group>"; };
-		C0ED88871FE6DF6E00E43C62 /* PracticeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PracticeViewController.h; sourceTree = "<group>"; };
-		C0ED88881FE6DF6E00E43C62 /* PracticeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeViewController.m; sourceTree = "<group>"; };
 		C0ED888A1FE83A2600E43C62 /* PracticeInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PracticeInfoViewController.h; sourceTree = "<group>"; };
 		C0ED888B1FE83A2600E43C62 /* PracticeInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeInfoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,10 +110,10 @@
 		C07046951FD5D499004F5E7D = {
 			isa = PBXGroup;
 			children = (
+				C091DF7820853B9C00CC31CF /* EntitisTableViewController.h */,
+				C091DF7920853B9C00CC31CF /* EntitisTableViewController.m */,
 				C0ED888A1FE83A2600E43C62 /* PracticeInfoViewController.h */,
 				C0ED888B1FE83A2600E43C62 /* PracticeInfoViewController.m */,
-				C0ED88871FE6DF6E00E43C62 /* PracticeViewController.h */,
-				C0ED88881FE6DF6E00E43C62 /* PracticeViewController.m */,
 				C0ED88841FE6D8C700E43C62 /* PeopleInfoViewController.h */,
 				C0ED88851FE6D8C700E43C62 /* PeopleInfoViewController.m */,
 				C07046E51FD88365004F5E7D /* StudentTableViewController.h */,
@@ -155,9 +155,9 @@
 				C07046A71FD5D49A004F5E7D /* Main.storyboard */,
 				C07046AF1FD5D49A004F5E7D /* LaunchScreen.storyboard */,
 				C07046B21FD5D49A004F5E7D /* Info.plist */,
+				C01766E42083F71E00C70C2F /* Images.xcassets */,
 				C07046B31FD5D49A004F5E7D /* main.m */,
 				C07046AA1FD5D49A004F5E7D /* YOGA_Studios.xcdatamodeld */,
-				C00C34921FDC486D005686A7 /* Images.xcassets */,
 			);
 			path = "YOGA Studios";
 			sourceTree = "<group>";
@@ -286,8 +286,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C01766E52083F71E00C70C2F /* Images.xcassets in Resources */,
 				C07046B11FD5D49A004F5E7D /* LaunchScreen.storyboard in Resources */,
-				C00C34931FDC486D005686A7 /* Images.xcassets in Resources */,
 				C07046A91FD5D49A004F5E7D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,11 +318,11 @@
 				C0ED88861FE6D8C700E43C62 /* PeopleInfoViewController.m in Sources */,
 				C07046A31FD5D499004F5E7D /* AppDelegate.m in Sources */,
 				C07046E11FD8832F004F5E7D /* PracticeTableViewController.m in Sources */,
-				C0ED88891FE6DF6E00E43C62 /* PracticeViewController.m in Sources */,
 				C07046DB1FD700F7004F5E7D /* CoreDataTableViewController.m in Sources */,
 				C07046D81FD5E95E004F5E7D /* CoreDataManager.m in Sources */,
 				C07046B41FD5D49A004F5E7D /* main.m in Sources */,
 				C07046DE1FD88301004F5E7D /* StudioTableViewController.m in Sources */,
+				C091DF7A20853B9C00CC31CF /* EntitisTableViewController.m in Sources */,
 				C07046AC1FD5D49A004F5E7D /* YOGA_Studios.xcdatamodeld in Sources */,
 				C0ED888C1FE83A2600E43C62 /* PracticeInfoViewController.m in Sources */,
 				C07046E71FD88365004F5E7D /* StudentTableViewController.m in Sources */,
@@ -490,6 +490,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q2B57JKPWT;
 				INFOPLIST_FILE = "YOGA Studios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gromwel.YOGA-Studios";
@@ -504,6 +505,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q2B57JKPWT;
 				INFOPLIST_FILE = "YOGA Studios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gromwel.YOGA-Studios";

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17B1003" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="YSEntity" representedClassName="YSEntity" syncable="YES" codeGenerationType="class"/>
     <entity name="YSPractice" representedClassName="YSPractice" parentEntity="YSEntity" syncable="YES" codeGenerationType="class">
         <attribute name="descriptionText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="YSStudent" inverseName="practices" inverseEntity="YSStudent" syncable="YES"/>
         <relationship name="studios" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="YSStudio" inverseName="practices" inverseEntity="YSStudio" syncable="YES"/>
@@ -12,7 +13,7 @@
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sex" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="practices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="YSPractice" inverseName="students" inverseEntity="YSPractice" syncable="YES"/>
         <relationship name="studio" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="YSStudio" inverseName="students" inverseEntity="YSStudio" syncable="YES"/>
     </entity>
@@ -33,8 +34,8 @@
     </entity>
     <elements>
         <element name="YSEntity" positionX="36" positionY="-171" width="128" height="45"/>
-        <element name="YSPractice" positionX="178" positionY="101" width="128" height="118"/>
-        <element name="YSStudent" positionX="-425" positionY="56" width="128" height="133"/>
+        <element name="YSPractice" positionX="178" positionY="101" width="128" height="135"/>
+        <element name="YSStudent" positionX="-425" positionY="56" width="128" height="135"/>
         <element name="YSStudio" positionX="-621" positionY="-126" width="128" height="118"/>
         <element name="YSTeacher" positionX="-54" positionY="197" width="128" height="133"/>
     </elements>

@@ -5,6 +5,7 @@
 //  Created by Clyde Barrow on 06.12.2017.
 //  Copyright © 2017 Clyde Barrow. All rights reserved.
 //
+//  Таблица студентов с возможностью удаления/добавления
 
 #import "CoreDataTableViewController.h"
 
@@ -13,6 +14,7 @@
 
 @interface StudentTableViewController : CoreDataTableViewController
 
+//  Студия в которой смотрим студентов
 @property (nonnull, strong) YSStudio * studio;
 
 @end
