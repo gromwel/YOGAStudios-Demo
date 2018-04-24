@@ -11,15 +11,15 @@
 ### Примеры работы приложения
 
 - #### Заполнение студии
-![screengrab](/GIFs/CREATE_STUDIO.gif)
+![screengrab](/GIFs/CREATE_STUDIO_SMALL.gif)
 ###### _Добавление новых: практики, преподавателя, студента_
 
 - #### Настройка практики
-![screengrab](/GIFs/EDIT_PRACTICE.gif)
+![screengrab](/GIFs/EDIT_PRACTICE_SMALL.gif)
 ###### _Редактирование информации о практике_
 
 - #### Настройка преподавателя/студента
-![screengrab](/GIFs/EDIT_TEACHER.gif)
+![screengrab](/GIFs/EDIT_TEACHER_SMALL.gif)
 ###### _Редактирование информации о преподавателе/студенте_
 
  
